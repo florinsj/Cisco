@@ -1,0 +1,125 @@
+2.1.1  OS
+// end devices and network devices - require an OS
+
+Shell       // = user interface that allow users to request specific task from the computer
+
+Kernel      // = the part of OS wich makes the comunication between software and hardware
+            // kernel manages how hardware resources are used to meet software requirements
+
+Hardware    // physical part of the computer (electronic parts)
+
+--------------------------------------------------------------------------------------------------
+
+2.1.2
+
+GUI     // Graphical User Interface  - user interacts with system through windows, graphics, mouse 
+        // not stable, need more resources
+        // view output on a monitor
+    
+CLI     // Command Line Interface   - user interacts with system through keyboard text based commands
+        // stable, less resources, many capabilities
+        // more precise control and flexibility
+        // view output on a monitor
+        
+--------------------------------------------------------------------------------------------------
+
+2.1.3
+// all network devices require an OS so that they can be configured using the CLI or a GUI
+// Cisco devices run particular versions of Cisco IOS (Cisco Internetwork Operating System)
+--------------------------------------------------------------------------------------------------
+
+2.1.4 Access Methods
+
+// to configure a network device, first is needed an access Methods
+// there are several access methods :
+
+
+Console             // physical management port
+                    // out-of-band access  (acces via dedicated interface for maintenance purpose only)
+                    // no network configuration needed, can access the device unconfigured
+                    // need special console(serial) cable
+
+SSH (Secure Shell)  // remote access
+                    // a SECURE  CLI connection through a virtual interface over a network
+                    // in-band access
+                    // comunication with device is secured (crypted)
+                    // require active networking services on device
+                    // require active interface configured with address
+                    // most Cisco IOS containt SSH server and SSH client
+
+Telnet              // remote acces 
+                    // in-band acces
+                    // an INSECURE  CLI connection through a virtual interface over a network
+                    // should only used in lab environment
+                    // user authentification is sent over network in plain text
+                    // Cisco IOS include Telnet server and Telnet client
+
+
+Auxiliary port  // some devices(routers,switchs) may also support an auxiliary port 
+                // used to estabilish CLI session remotely over a telephone connection using a modem
+                // out-of-band access(do not require  networking services to be configured or active)
+
+--------------------------------------------------------------------------------------------------
+2.1.5. Terminal Emulation Programs
+
+Putty
+Tera Term
+Secure CRT 
+
+--------------------------------------------------------------------------------------------------
+
+2.2.1 Primary Command Modes
+
+two commands modes:     -> User EXEC Mode
+                        -> Privileged Exec Mode
+
+
+User EXEC Mode          // limited capabilities, basic operations, "view-only" mode
+                        // not allow commands that might change the configuration of the device
+                        // in User EXEC mode, CLI prompt ends with  " > "
+                        // Switch> , Router>
+
+Privileged EXEC Mode    // can execute all configuration commands, all management commands
+                        // can access all features
+                        // from Privileged EXEC Mode can be accessed Global configuration mode
+                        // Global configuration mode =higher access mode
+                        // in Privileged EXEC Mode, CLI prompt ends with " # "
+                        // Switch# , Router#
+                        
+                        Commands: 
+                                // enable = command for enter Privileged EXEC 
+                                // disable or exit = command for exit to previous mode
+--------------------------------------------------------------------------------------------------
+2.2.2 Config Mode and Subconfig Modes
+
+Global config mode
+
+    // from global config mode configuration commands affects the operations of the device
+    // prompt ends with " (config)# "  --> Switch(config)#  , Router(config)#
+    // from global config mode can enter in subconfiguration modes Line config mode and Interface c 
+    
+    Commands:
+        // configure terminal = command to enter Global Config Mode  
+        // exit = command for exit to previous mode
+
+
+Line config mode        // used to configure console, SSH, Telnet, Aux access
+                        // end with (config-line)#
+                        Commands:
+                                // line [lineTypeManagement] [number] = command to enter line mode
+                                Ex. line console 0  -- get to management of console line 0
+                                Ex. line vty 0 15  -- get to virtual terminal management interfaces
+                                // exit = command for exit to previous mode
+
+Interface config mode   // used to configure switch port or router interface
+                        // end with (config-if)#
+                        
+                        Commands:
+                                // interface []interfaceName] = command to enter interface mode
+                                Ex: interface vlan1
+                                Ex: interface FastEthernet 0/1
+                                // exit = command for exit to previous mode       
+
+Shortcuts :
+        CTRL-Z  - move from subconfiguration mode (line or interface) to Privileged EXEC
+        end     - move from subconfiguration mode (line or interface) to Privileged EXEC
