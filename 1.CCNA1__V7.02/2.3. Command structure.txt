@@ -1,0 +1,36 @@
+2.3.1 IOS Command Structure
+
+[prompt][command]space [keywords or arguments]
+
+Ex. Switch>show ip protocols    // show= command    ip,protocols= keyword
+    Switch>ping 192.168.10.5    // ping= command    192.168.10.5= argument
+----------------------------------------------------------------------------------------------
+
+2.3.2 Syntax check convention
+boldface    - command
+italics     - arguments for wich yu suply values
+[x]         - square brakets - optional element (keyword or argument)
+{x}         - braces    - required element (keyword or argument)
+[x{y|z}]    - required choice (y or z) and an optional element
+
+ping ip-address          // ping=command , ip-address =argument=destination address
+traceroute ip-address    // traceroute= command , ip-address =argument=destination address
+
+
+----------------------------------------------------------------------------------------------
+
+2.3.3 IOS Help 
+
+context-sensitive
+?   // - list all commands for current mode
+
+command syntax check 
+        // check command syntax and execute if everything ok .else provide help
+    
+----------------------------------------------------------------------------------------------
+
+show clock                              // display current date and time
+
+clock set [time] [day] [month] [year]   // set current date and time
+ex. clock set 15:28:00 11 Jan 2022
+
