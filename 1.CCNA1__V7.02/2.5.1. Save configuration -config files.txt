@@ -1,0 +1,58 @@
+2.5.1 Configuration Files
+
+startup-config  // file saved in NVRAM (non volatile);contains all the command upon startup/reboot.
+                // flash do not lose its contents when device power off
+                // contains all the configuration loaded at startup
+
+running-config  // files saved in RAM (volatile).it reflects current config.
+                // modifying running config affects the operation of Cisco immediately
+
+
+/* when device is starting, startup-config file is loaded ; running-config file contains current
+configuration and is saved in RAM.any modification of running-config file, affects immediately */
+
+
+in privileged EXEC mode :  
+                
+    show running-config -- (command) used to show running-config file
+
+    show startup-config -- (command) used to show startup-config file
+
+    // if power lost all the configuration changes all lost. to save use the copy command:
+
+    copy running-config startup-config - save the changes made to running-config to startup-config
+-----------------------------------------------------------------------------------------------
+
+2.5.2 Alter the Running config
+
+/* if current changes don't have the desired effect and running-config has not been saved yet
+it is possible to reload previous configuration */
+
+in privileged EXEC mode :
+
+    reload  // remove an unsaved running config 
+            // downside -the device will be down an amount of time
+            // device is rebooted
+
+/* if undesired changes were saved to the statup config and want to return to previous config,
+the start-up config must be erased and the device must be rebooted */
+
+in privileged EXEC mode :
+    
+    erase startup-config    // remove the startup-config file 
+                            // after reboot, the device will load factory startup-config 
+
+
+--------------------------------------------------------------------------------------------------
+flash memory - contains IOS 
+dir flash:  - show flash
+
+nvram memory - contains configuration files
+dir nvram:  - show nvram
+
+-------------------------------------------------------------------------------------------------
+/* if changes are made to running-config and not saved to startup-config, and want the previous 
+configuration without reload it is possible to copy statup-config file to running-config file */
+
+benefits: no reload(reboot) , no downtime 
+
