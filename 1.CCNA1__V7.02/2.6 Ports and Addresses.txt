@@ -1,0 +1,26 @@
+2.6.1. IP address
+
+// every device in network need to have an IP address
+// used for end-to-end communication and to locate a device in network
+
+// 2 types of ip : IPv4 and IPv6
+
+// IPv4 --> 32 bits
+// IPv4 = 4 decimal numbers (0-255) separated by dot "." ; ex : 192.168.1.1
+// 4 decimal number x 8bits/number =32bits
+// IPv4 need an 32 bits mask to differentiate the network portion from host portion
+// IPv4 coupled with mask determine to wich subnet the device is a member
+
+// IPv6 --> 128bits
+// 8 groups of 4 hexadecimal values, separated by colon ":"  ex ipv6:  2001:db8:acad:10::10
+// 8 groups x 4 hexadecimals = 32 hexadecimal
+// each hexadecimal = 4 bits
+// 32 hexadecimal x 4 bits =128 total bits for IPv6
+// not case sensitive
+
+2.6.2 Interfaces and Ports
+
+// switches have physical ports for device to connect.
+// switches ports don't support IP address
+// some switches have one ore more SVI (switch virtual interface). the ip is assigned to SVI
+// SVI lets you remotely manage a switch
