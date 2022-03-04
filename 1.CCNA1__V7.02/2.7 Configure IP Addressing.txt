@@ -1,0 +1,18 @@
+
+
+configure IP address    - manual -- by user  
+                        - automatic -- from DHCP server (Dinamic Host Control Protocol)
+
+
+2.7.4 Switch Virtual Interface Configuration
+
+// to access the Switch remotely, an IP address and subnet mask must be configured on the SVI
+
+-->// to configure SVI on  a Switch use "interface vlan1 1" global config mode
+-->// vlan 1 = virtual interface
+-->// assign an IPv4 address using "ip address [ip-address] [subnet-mask]" command in interface mode
+-->// enable interface using "no shutdown" command in interface mode
+-->// to configure gateway use "ip default-gateway [ip address]" command in global config mode
+
+
+show ip interface brief     //(command) show ip configuration to all interfaces
